@@ -3,9 +3,11 @@
 
 \usepackage[utf8]{inputenc}
 
-
 \begin{document} 
 
+
+
+%% Front page.
 {% if title -%}
     \title{ {{ title }} }
 
@@ -24,6 +26,21 @@
     \maketitle
 
 {% endif -%}
+\newpage
+
+%% Abstract page.
+{% if abstract %}
+\begin{abstract}
+    {{ abstract }}
+\end{abstract}
+\newpage
+{% endif %}
+
+%% Table of contents page.
+{% if table_contents %}
+\tableofcontents
+\newpage
+{% endif %}
 
 
 %% Body start.
