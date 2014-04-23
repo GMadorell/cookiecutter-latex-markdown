@@ -1,4 +1,6 @@
 
+{% raw %}
+
 \documentclass{% if font_type %}[{{ font_type }}]{% endif %}{article}
 
 \usepackage[utf8]{inputenc}
@@ -25,8 +27,9 @@
 
     \maketitle
 
-{% endif -%}
 \newpage
+{% endif -%}
+
 
 %% Abstract page.
 {% if abstract %}
@@ -49,3 +52,5 @@
 %% Body end.
 
 \end{document}
+
+{% endraw %}

@@ -13,7 +13,7 @@ Options:
 from jinja2 import Environment, FileSystemLoader
 from docopt import docopt
 
-import metadata
+from metadata import *
 
 
 def process_tex_file(input_path, template_name):
@@ -22,7 +22,7 @@ def process_tex_file(input_path, template_name):
 
     env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template(template_name)
-    return template.render(body=body, **metadata.metadata)
+    return template.render(body=body, **globals())
 
 
 def set_system_encoding_utf8():

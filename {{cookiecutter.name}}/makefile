@@ -17,5 +17,5 @@ debug:
 	$(MAKE) clean
 
 clean:
-	rm -f *.out *.pdf *.aux *.dvi *.log *.blg *.bbl *.tex-e *.toc
+	rm -f *.out *.pdf *.aux *.dvi *.log *.blg *.bbl *.tex-e *.toc *.pyc
 
