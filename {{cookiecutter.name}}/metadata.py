@@ -12,6 +12,8 @@ abstract = open("abstract.txt", "r").read()
 
 table_contents = True
 
+bibliograpy_style = "plain"
+
 
 
 

@@ -6,7 +6,9 @@ LATEX_TEMPLATE_URL = "https://raw.githubusercontent.com/Skabed/cookiecutter-late
 
 def main():
     # Reload latex template because cookiecutter removes tags from it.
+    print("Reloading latex template.")
     reload_latex_template()
+    print("Done.")
 
 
 def reload_latex_template():

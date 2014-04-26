@@ -58,8 +58,10 @@
 %% Body end.
 
 %% Bibliography.
-\nocite{*}
-\bibliographystyle{plain}
+{% if not citations_found %}
+    \nocite{*}
+{% endif %}
+\bibliographystyle{ {{ bibliography_style }} }
 \bibliography{references}
 
 \end{document}

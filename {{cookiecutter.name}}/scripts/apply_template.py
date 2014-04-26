@@ -19,16 +19,18 @@ import encoding
 # Add parent directory to the path.
 PARENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 sys.path.append(PARENT_DIR)
-import metadata
+from metadata import *
 
 
 def process_tex_file(input_path, template_name):
     with open(input_path, "r") as tex_file:
         body = tex_file.read()
 
+    citations_found = "\cite{" in body
+
     env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template(template_name)
-    return template.render(body=body, **globals())
+    return template.render(body=body, citations_found=citations_found, **globals())
 
 
 if __name__ == "__main__":
