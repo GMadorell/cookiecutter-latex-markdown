@@ -1,7 +1,7 @@
 # coding=utf-8
 
 # Global settings.
-document_class = "article"
+document_class = "ext" + "article"  # Ext is for extsizes package.
 font_size = "10pt"  # Allowed: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
 
 # Front page.
