@@ -22,6 +22,10 @@ debug:
 	@sleep 1
 	$(MAKE) clean
 
+publish:
+    $(MAKE) build
+    $(MAKE) clean
+
 clean:
-	rm -f *.out *.pdf *.aux *.dvi *.log *.blg *.bbl *.tex-e *.toc *.pyc
+	rm -f *.out *.aux *.dvi *.log *.blg *.bbl *.tex-e *.toc *.pyc
 
