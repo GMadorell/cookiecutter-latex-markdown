@@ -23,8 +23,11 @@ debug:
 	$(MAKE) clean
 
 publish:
-    $(MAKE) build
-    $(MAKE) clean
+	$(MAKE) build
+	$(MAKE) clean
+
+transform_images_eps:
+	python scripts/transform_img_eps.py
 
 clean:
 	rm -f *.out *.aux *.dvi *.log *.blg *.bbl *.tex-e *.toc *.pyc

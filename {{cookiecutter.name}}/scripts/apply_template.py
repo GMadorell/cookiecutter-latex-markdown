@@ -56,7 +56,6 @@ def remove_spaces_at_positions(text, regex, positions):
         new_group = group
         for displacement, position in enumerate(positions):
             new_group = new_group[:position] + new_group[position + 1:]
-        print group, new_group
         text = text.replace(group, new_group)
     return text
 
