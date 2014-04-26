@@ -4,6 +4,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{extsizes} % Allow for more sizes suchas 14pt or 17pt on document class.
+\usepackage{mathtools} % Allows conditional math expressions, etc.
 
 % Don't output references in case they're empty - http://tex.stackexchange.com/questions/74476/how-to-avoid-empty-thebibliography-environment-bibtex-if-there-are-no-refere
 {% raw %}
