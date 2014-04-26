@@ -1,18 +1,20 @@
 # coding=utf-8
 
 # Global settings.
+document_class = "article"
 font_type = None
 
 # Front page.
+## Setting title to None also ignores authors and date.
 title = "Some title"
 authors = ["Authòr1", "Author2"]
-date = "November 2, 2014"
+date = r"\today"
 
 abstract = open("abstract.txt", "r").read()
 
 table_contents = True
 
-bibliograpy_style = "plain"
+bibliography_style = "plain"
 
 
 
