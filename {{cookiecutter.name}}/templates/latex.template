@@ -1,9 +1,15 @@
 
-{% raw %}
 
 \documentclass{% if font_type %}[{{ font_type }}]{% endif %}{article}
 
 \usepackage[utf8]{inputenc}
+
+% Don't output references in case they're empty - http://tex.stackexchange.com/questions/74476/how-to-avoid-empty-thebibliography-environment-bibtex-if-there-are-no-refere
+{% raw %}
+\let\myBib\thebibliography
+\let\endmyBib\endthebibliography 
+\renewcommand\thebibliography[1]{\ifx\relax#1\relax\else\myBib{#1}\fi}
+{% endraw %}
 
 \begin{document} 
 
@@ -51,6 +57,9 @@
 
 %% Body end.
 
-\end{document}
+%% Bibliography.
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
 
-{% endraw %}
+\end{document}

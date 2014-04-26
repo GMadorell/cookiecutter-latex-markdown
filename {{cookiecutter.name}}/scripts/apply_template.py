@@ -12,8 +12,14 @@ Options:
 
 from jinja2 import Environment, FileSystemLoader
 from docopt import docopt
+import os
+import sys
+import encoding
 
-from metadata import *
+# Add parent directory to the path.
+PARENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
+sys.path.append(PARENT_DIR)
+import metadata
 
 
 def process_tex_file(input_path, template_name):
@@ -25,17 +31,11 @@ def process_tex_file(input_path, template_name):
     return template.render(body=body, **globals())
 
 
-def set_system_encoding_utf8():
-    import sys
-    reload(sys)
-    sys.setdefaultencoding("utf-8")
-
-
 if __name__ == "__main__":
     arguments = docopt(__doc__)
 
     # Solve a problem with the encoding of the metadata.
-    set_system_encoding_utf8()
+    encoding.set_system_encoding_utf8()
 
     processed_tex_file = process_tex_file(arguments["-i"], arguments["-t"])
 
