@@ -1,8 +1,9 @@
 
 
-\documentclass{% if font_type %}[{{ font_type }}]{% endif %}{ {{ document_class }} }
+\documentclass{% if font_size %}[{{ font_size }}]{% endif %}{ {{ document_class }} }
 
 \usepackage[utf8]{inputenc}
+\usepackage{extsizes} % Allow for more sizes suchas 14pt or 17pt on document class.
 
 % Don't output references in case they're empty - http://tex.stackexchange.com/questions/74476/how-to-avoid-empty-thebibliography-environment-bibtex-if-there-are-no-refere
 {% raw %}
