@@ -22,6 +22,8 @@
 
     {% if date and date != "\\today" %}
     \renewcommand{\today}{ {{ date }} }
+    {% elif not date %}
+    \date{}
     {% endif %}
 
     {% if authors -%}
