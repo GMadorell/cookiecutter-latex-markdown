@@ -1,5 +1,5 @@
 import os
-import Image
+from PIL import Image
 
 
 def main():
@@ -11,7 +11,9 @@ def main():
 
         name, extension = full_name.split(".")
         eps_name = directory + name + ".eps"
-        img.save(eps_name)
+        if not os.path.exists(eps_name):
+            with open(eps_name, "w") as output_file:
+                img.save(output_file, 'EPS')
 
 
 def get_images_names():
