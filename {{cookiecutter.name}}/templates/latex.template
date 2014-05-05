@@ -1,12 +1,21 @@
 
-
+\RequirePackage[l2tabu, orthodox]{nag} % Complaints if syntax isn't right.
 \documentclass{% if font_size %}[{{ font_size }}]{% endif %}{ {{ document_class }} }
 
 \usepackage[utf8]{inputenc}
 \usepackage{extsizes} % Allow for more sizes such as 14pt or 17pt on document class.
 \usepackage{mathtools} % Allows conditional math expressions, etc.
+\usepackage{graphicx} % Allows \includegraphics.
+
+% Layout the document: http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf
+\usepackage[{{ geometry_layout }}]{geometry}
+
 \usepackage{microtype} % Makes document more readable by optimizing space between letters.
+
+\usepackage{units} % Adds \nicefrac{1}{2}: (½), \unit[5]{m}{s}: 5 m/s.
+
 \usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref} % Allow clicking references and the table of contents in pdfs.
+\usepackage{cleveref} % Adds fig/formula etc. before references (use \cref).
 
 % Don't output references in case they're empty - http://tex.stackexchange.com/questions/74476/how-to-avoid-empty-thebibliography-environment-bibtex-if-there-are-no-refere
 {% raw %}

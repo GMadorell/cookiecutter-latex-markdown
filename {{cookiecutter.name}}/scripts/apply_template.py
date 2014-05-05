@@ -32,10 +32,12 @@ def process_tex_file(input_path, template_name):
         body = tex_file.read()
 
     citations_found = "\cite{" in body
+    g_layout = "top={0}, bottom={1}, left={2}, right={3}".format(top_margin, bot_margin, left_margin, right_margin)
 
     env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template(template_name)
-    templated_text = template.render(body=body, citations_found=citations_found, **globals())
+    templated_text = template.render(body=body, citations_found=citations_found,
+                                     geometry_layout=g_layout, **globals())
 
     return post_process_templated_text(templated_text)
 
