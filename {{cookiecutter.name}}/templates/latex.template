@@ -14,7 +14,11 @@
 \usepackage{algpseudocode}
 {% endif %}
 
-% Layout the document: http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf
+{% if code_blocks_found %}
+% Uses pygments to make code beautiful: http://tug.ctan.org/tex-archive/macros/latex/contrib/minted/minted.pdf
+\usepackage{minted}  
+{% endif %}
+
 \usepackage[{{ geometry_layout }}]{geometry}
 
 \usepackage{microtype} % Makes document more readable by optimizing space between letters.
@@ -36,20 +40,20 @@
 % Norm -> ||something||
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-% Stdfig -> Used as \stdfig{label_name}{caption}
+% Stdfig -> Used as \stdfig{width}{label_name}{caption}
 % Requires: image called 'caption' in img folder.
-% Output: A figure with horizontal size the same as the document,
-%         labeled as 'fig:label_name'
+% Output: A figure with the given width, labeled as 'fig:label_name'
 {% raw %}
-\newcommand{\stdfig}[2]{
+\newcommand{\stdfig}[3]{
     \begin{figure}
     \centering
-    \includegraphics[max size={\textwidth}{\textheight}]{img/#1.eps}
-    \caption{#2}
-    \label{fig:#1}
+    \includegraphics[width = #1]{img/#2.eps}
+    \caption{#3}
+    \label{fig:#2}
     \end{figure}
 }
 {% endraw %}
+
 
 \begin{document} 
 

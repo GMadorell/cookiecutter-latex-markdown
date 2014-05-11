@@ -12,13 +12,14 @@ build:
 
 	python scripts/transform_img_eps.py
 
-	latex "{{cookiecutter.name}}".tex
+	latex -shell-escape "{{cookiecutter.name}}".tex
 	bibtex "{{cookiecutter.name}}"
-	latex "{{cookiecutter.name}}".tex
-	latex "{{cookiecutter.name}}".tex
-	pdflatex "{{cookiecutter.name}}".tex
+	latex -shell-escape "{{cookiecutter.name}}".tex
+	latex -shell-escape "{{cookiecutter.name}}".tex
+	pdflatex -shell-escape "{{cookiecutter.name}}".tex
 
 debug:
+	$(MAKE) clean
 	$(MAKE) build
 	xdg-open "{{cookiecutter.name}}.pdf" &
 	$(MAKE) clean

@@ -31,17 +31,42 @@ def process_tex_file(input_path, template_name):
     with open(input_path, "r") as tex_file:
         body = tex_file.read()
 
+    print body
+    body = apply_minted(body)
+
     citations_found = r"\cite{" in body
     algorithms_found = r"\begin{algorithm}" in body and r"\begin{algorithmic}" in body
+    code_blocks_found = r"\begin{minted}" in body
+
     g_layout = "top={0}, bottom={1}, left={2}, right={3}".format(top_margin, bot_margin, left_margin, right_margin)
 
     env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template(template_name)
     templated_text = template.render(body=body, citations_found=citations_found,
                                      algorithms_found=algorithms_found,
+                                     code_blocks_found=code_blocks_found,
                                      geometry_layout=g_layout, **globals())
 
     return post_process_templated_text(templated_text)
+
+
+def apply_minted(body):
+    verbatim_regex = re.compile(r"(?s)(\\begin{verbatim}.*?\\end{verbatim})")
+
+    # Finds the language and the code separatedly from a verbatim block.
+    # More specifically: looks for '#!language\ncode' inside a verbatim block.
+    language_hashtag_regex = re.compile(r"\\begin{verbatim}\n\#\!([\d\D]*?)\n([\d\D]*)\\end{verbatim}")
+
+    search = verbatim_regex.findall(body)
+    if search:
+        for verbatim in search:
+            code_search = language_hashtag_regex.findall(verbatim)
+            if code_search:
+                lang, code = code_search[0]
+                latex_code = "\\begin{{minted}}{{python}}\n{code}\\end{{minted}}".format(code=code)
+                body = body.replace(verbatim, latex_code)
+
+    return body
 
 
 def post_process_templated_text(templated_text):
