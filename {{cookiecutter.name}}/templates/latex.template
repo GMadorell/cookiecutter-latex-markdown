@@ -6,11 +6,13 @@
 \usepackage{extsizes} % Allow for more sizes such as 14pt or 17pt on document class.
 \usepackage{mathtools} % Allows conditional math expressions, etc.
 \usepackage{amsfonts} % Allows \mathbb{R}, which is the real numbers symbol.
-\usepackage[export]{adjustbox} % Wrapd \includegraphics with more keys (options).
+\usepackage[export]{adjustbox} % Wraps \includegraphics with more keys (options).
 
+{% if algorithms_found %}
 % For writing pseudocode snippets: http://ctan.mackichan.com/macros/latex/contrib/algorithmicx/algorithmicx.pdf
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+{% endif %}
 
 % Layout the document: http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf
 \usepackage[{{ geometry_layout }}]{geometry}
@@ -98,6 +100,10 @@
 %% Body end.
 
 %% Bibliography.
+{% if put_bibliography_on_new_page %}
+\clearpage
+{% endif %}
+
 {% if not citations_found %}
     \nocite{*}
 {% endif %}

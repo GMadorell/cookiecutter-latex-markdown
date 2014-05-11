@@ -31,12 +31,14 @@ def process_tex_file(input_path, template_name):
     with open(input_path, "r") as tex_file:
         body = tex_file.read()
 
-    citations_found = "\cite{" in body
+    citations_found = r"\cite{" in body
+    algorithms_found = r"\begin{algorithm}" in body and r"\begin{algorithmic}" in body
     g_layout = "top={0}, bottom={1}, left={2}, right={3}".format(top_margin, bot_margin, left_margin, right_margin)
 
     env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template(template_name)
     templated_text = template.render(body=body, citations_found=citations_found,
+                                     algorithms_found=algorithms_found,
                                      geometry_layout=g_layout, **globals())
 
     return post_process_templated_text(templated_text)
