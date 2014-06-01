@@ -2,7 +2,7 @@
 \RequirePackage[l2tabu, orthodox]{nag} % Complaints if syntax isn't right.
 \documentclass{% if font_size %}[{{ font_size }}]{% endif %}{ {{ document_class }} }
 
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{extsizes} % Allow for more sizes such as 14pt or 17pt on document class.
 \usepackage{mathtools} % Allows conditional math expressions, etc.
 \usepackage{amsfonts} % Allows \mathbb{R}, which is the real numbers symbol.

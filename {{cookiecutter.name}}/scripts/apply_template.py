@@ -31,7 +31,6 @@ def process_tex_file(input_path, template_name):
     with open(input_path, "r") as tex_file:
         body = tex_file.read()
 
-    print body
     body = apply_minted(body)
 
     citations_found = r"\cite{" in body
