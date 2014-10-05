@@ -17,3 +17,12 @@ You will then be asked about the folder name (which is the same name as the mark
 
 ### What happens underneath?
 The markdown file gets converted into the body of a .tex file using pandoc. Then, a template gets processed along with the metadata in order to add things such as the table of contents (if that option is enabled) or the tile and authors or the tex file. Afterwards, the tex file is processed with LaTeX and pdflatex.
+
+
+## Features ##
+### Code snippets ###
+Simply use the line `#!language` wherever you need, inside of a indented block. For example, for writing some python code, just write the following in the .md file:
+
+        #!python
+        def this_is_a_function():
+            print("Hello world!")

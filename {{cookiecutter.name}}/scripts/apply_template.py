@@ -63,7 +63,8 @@ def apply_minted(body):
             code_search = language_hashtag_regex.findall(verbatim)
             if code_search:
                 lang, code = code_search[0]
-                latex_code = "\\begin{{minted}}{{{lang}}}\n{code}\\end{{minted}}".format(lang=lang, code=code)
+                latex_code = "\\begin{{minted}}{{lang}}\n{code}\\end{{minted}}".format(code=code)
+                latex_code = latex_code.replace("{lang}", "{" + lang + "}")
                 body = body.replace(verbatim, latex_code)
 
     return body
