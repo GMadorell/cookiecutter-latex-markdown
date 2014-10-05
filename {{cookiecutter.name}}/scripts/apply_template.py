@@ -1,4 +1,5 @@
 # -- coding: utf-8 --
+# { %raw% }
 """
 Usage:
     apply_template.py -i input_file -o output_file -t template
@@ -98,3 +99,6 @@ if __name__ == "__main__":
 
     with open(arguments["-o"], "w") as output_file:
         output_file.write(processed_tex_file.encode("utf-8"))
+
+
+# { %endraw% }
