@@ -40,6 +40,9 @@
 % Norm -> ||something||
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+% Absolute value: \abs{something} -> |something|
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
 % Stdfig -> Used as \stdfig{width}{label_name}{caption}
 % Requires: image called 'caption' in img folder.
 % Output: A figure with the given width, labeled as 'fig:label_name'
