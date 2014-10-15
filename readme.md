@@ -35,4 +35,10 @@ A shortcut can be used whenever we want to insert an image as a **figure**:
 A image with name `image_name.extension` (currently the only supported extension is *.png*) will be searched inside the *img* directory and will be automatically converted to *.eps* and inserted with the given width.  
 A label will be created for the image with value *fig:image_name*.
 
+### Latex commands ###
+#### Math ####
+
+* Absolute value: \abs{smth} -> |smth|
+* Norm: \norm{smth} -> ||smth||
+
 
