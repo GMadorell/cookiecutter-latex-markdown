@@ -20,6 +20,18 @@ The markdown file gets converted into the body of a .tex file using pandoc. Then
 
 
 ## Features ##
+
+### Pandoc Markdown Dialect ###
+Pandoc is used to transform Markdown to Tex. This means that we get access to the Pandoc Markdown dialect, which has a lot more things than the basic one created by John Gruber’s. We have access to:
+
+* Tables
+* Headers with identifiers.
+* Fenced blocks.
+* Line blocks.
+* Horitzontal rules.
+
+And more things. Check [the pandoc docs](http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html) for more information.
+
 ### Code snippets ###
 Simply use the line `#!language` wherever you need, inside of a indented block. For example, for writing some python code, just write the following in the .md file:
 

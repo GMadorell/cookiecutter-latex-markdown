@@ -19,6 +19,10 @@
 \usepackage{minted}  
 {% endif %}
 
+% Pandoc table support.
+\usepackage{booktabs}
+\usepackage{longtable}
+
 \usepackage[{{ geometry_layout }}]{geometry}
 
 \usepackage{microtype} % Makes document more readable by optimizing space between letters.
@@ -33,7 +37,8 @@
 % Don't output references in case they're empty - http://tex.stackexchange.com/questions/74476/how-to-avoid-empty-thebibliography-environment-bibtex-if-there-are-no-refere
 {% raw %}
 \let\myBib\thebibliography
-\let\endmyBib\endthebibliography 
+\let\endmyBib\endthebibliography
+
 \renewcommand\thebibliography[1]{\ifx\relax#1\relax\else\myBib{#1}\fi}
 {% endraw %}
 
