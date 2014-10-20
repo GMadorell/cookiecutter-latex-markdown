@@ -19,6 +19,9 @@
 \usepackage{minted}  
 {% endif %}
 
+% Allows in place images.
+\usepackage{float}
+
 % Pandoc table support.
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -61,6 +64,21 @@
     \end{figure}
 }
 {% endraw %}
+
+
+% inplacefig -> Used as \inplacefig{width}{img_name}
+% Requires: image called 'caption' in img folder.
+% Output: an inplace figure with the given width, labeled as 'fig:label_name'.
+{% raw %}
+\newcommand{\inplacefig}[2]{
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width = #1]{img/#2.eps}
+    \label{fig:#2}
+    \end{figure}
+}
+{% endraw %}
+
 
 
 \begin{document} 
